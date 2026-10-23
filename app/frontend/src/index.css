@@ -1,0 +1,51 @@
+/* Responsive layout: stacks on small screens, two columns on wide screens. */
+
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #1a1a1a; background: #fafafa; }
+
+.page { max-width: 1280px; margin: 0 auto; padding: 16px; }
+
+.topbar { display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid #e5e5e5; margin-bottom: 16px; }
+.brand { font-weight: 600; }
+.cart-count { font-size: 14px; color: #555; }
+
+.layout { display: grid; gap: 24px; }
+.hero { width: 100%; max-width: 560px; border-radius: 12px; object-fit: cover; }
+
+h1 { margin: 0 0 8px; font-size: 28px; }
+.desc { color: #555; margin: 0 0 20px; }
+
+fieldset { border: none; margin: 0 0 16px; padding: 0; }
+legend { font-weight: 600; margin-bottom: 8px; }
+.swatches { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.chip { padding: 10px 18px; border: 1px solid #ccc; border-radius: 999px;
+  background: #fff; cursor: pointer; font-size: 15px; }
+.chip:hover:not(:disabled) { border-color: #888; }
+.chip:focus-visible { outline: 2px solid #005fcc; outline-offset: 2px; }
+.chip--on { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+.chip:disabled { opacity: 0.35; cursor: not-allowed; text-decoration: line-through; }
+
+.status { min-height: 24px; color: #333; font-size: 15px; }
+
+.buy { display: flex; gap: 16px; align-items: center; margin-top: 12px; flex-wrap: wrap; }
+.buy label { display: flex; align-items: center; gap: 8px; }
+.buy input { width: 72px; padding: 8px; border: 1px solid #ccc; border-radius: 8px; }
+
+.btn { padding: 12px 22px; border-radius: 10px; border: 1px solid #ccc;
+  background: #fff; cursor: pointer; font-size: 15px; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn--primary { background: #111; color: #fff; border: none; }
+.btn--primary:hover:not(:disabled) { background: #333; }
+
+.feedback { margin-top: 12px; font-size: 14px; }
+.feedback--success { color: #0a7a3d; }
+.feedback--error { color: #c00; }
+
+/* 375px and up: single column; 1280px: two columns. */
+@media (min-width: 900px) {
+  .layout { grid-template-columns: 1fr 1fr; align-items: start; }
+  .hero { max-width: none; }
+}
